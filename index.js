@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-app.use('/main', exercises);
+app.use('/', exercises);
 
 const PORT = process.env.PORT || 5001;
 

@@ -1,13 +1,17 @@
 const express = require("express");
+const cors = require("cors");
 const router = express.Router();
 const { getExercises, addExercise, deleteExercise, updateExercise } = require('../controller/exercises');
 
+
+router.use(cors())
+
 router
-    .route('/')
+    .route('/main')
     .get(getExercises);
 
 router
-    .route('/add')
+    .route('/addNewTask')
     .post(addExercise);
 
 router
