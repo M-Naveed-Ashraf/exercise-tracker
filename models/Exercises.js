@@ -4,22 +4,22 @@ const ExerciseSchema = new mongoose.Schema({
     title: {
         type: String,
         trim: true,
-        required: [true, 'please add a title']
+        // required: [true, 'please add a title']
     },
     price: {
         type: String,
         trim: true,
-        required: [true, 'please add some price']
+        // required: [true, 'please add some price']
     },
     details: {
         type: String,
         trim: true,
-        required: [true, 'please add details']
+        // required: [true, 'please add details']
     },
     image: {
         type: String,
         trim: true,
-        required: [true, 'please add an image of the product']
+        // required: [true, 'please add an image of the product']
     }
 });
 

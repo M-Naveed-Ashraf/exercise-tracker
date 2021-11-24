@@ -28,15 +28,24 @@ exports.getExercises = async (req, res, next) => {
 
 exports.addExercise = async (req, res, next) => {
     try {
-        const { title, price, details, image } = req.body;
 
-        const Exercise = await Exercises.create(req.body);
+        // virtual schema by mongoose if we want to add specific fields other than predefined schema
+        const exercise = new Exercises({
+            title: req.body.title
+        })
+        
+        // const { title } = req.body;
+
+        // const Exercise = await Exercises.create(req.body);
+        const exs = await exercise.save();
+        console.log(exs);
 
         return res.status(201).json({
             success: true,
-            data: Exercise
+            data: exs
         })
     } catch (error) {
+        console.log(error);
         if(error.name === 'ValidationError'){
             const message = Object.values(error.errors).map(val => val.message);
 
